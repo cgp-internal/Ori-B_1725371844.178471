@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*vnev
+.venv
+env
+venv
+ Pipfile.lock
