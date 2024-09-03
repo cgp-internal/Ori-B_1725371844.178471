@@ -1,0 +1,77 @@
+{
+    "app.py": {
+        "description": "Main entry point for the Flask application. Initializes the Flask app, sets up routes, and starts the server.",
+        "dependencies": {
+            "templates/say_hi.html": [
+                "say_hi_template"
+            ],
+            "routes.py": [
+                "say_hi_route"
+            ]
+        },
+        "exposes": [
+            "app"
+        ]
+    },
+    "routes.py": {
+        "description": "Defines routes for the application, including 'say-hi' endpoint and '/api/say-hi' API endpoint.",
+        "dependencies": {
+            "controllers/say_hi_controller.py": [
+                "say_hi_controller"
+            ]
+        },
+        "exposes": [
+            "say_hi_route",
+            "api_say_hi_route"
+        ]
+    },
+    "controllers/say_hi_controller.py": {
+        "description": "Contains the business logic for the 'say-hi' endpoint and '/api/say-hi' API endpoint.",
+        "dependencies": {
+            "services/greeting_service.py": [
+                "get_greeting"
+            ]
+        },
+        "exposes": [
+            "say_hi_controller"
+        ]
+    },
+    "services/greeting_service.py": {
+        "description": "Responsible for generating greetings.",
+        "exposes": [
+            "get_greeting"
+        ]
+    },
+    "templates/say_hi.html": {
+        "description": "HTML template for the 'say-hi' endpoint.",
+        "dependencies": {},
+        "exposes": [
+            "say_hi_template"
+        ]
+    },
+    "templates/__init__.py": {
+        "description": "Initialization file for the templates directory.",
+        "dependencies": {},
+        "exposes": []
+    },
+    "__init__.py": {
+        "description": "Initialization file for the package.",
+        "dependencies": {},
+        "exposes": []
+    },
+    "requirements.txt": {
+        "description": "List of required Python packages, including Flask and Jinja2.",
+        "dependencies": {},
+        "exposes": []
+    },
+    ".gitignore": {
+        "description": ".gitignore with Python cache files and virtual environment directories.",
+        "dependencies": {},
+        "exposes": []
+    },
+    "README.md": {
+        "description": "README file with project description and 'how to run' guide.",
+        "dependencies": {},
+        "exposes": []
+    }
+}
